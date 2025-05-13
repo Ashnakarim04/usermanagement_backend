@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 const fileUpload = require('express-fileupload');
+const app = express();
 
 if (!fs.existsSync('./uploads')) {
   fs.mkdirSync('./uploads');
@@ -16,14 +17,13 @@ const itemsRoute = require('./routes/itemsRoute');
 dotenv.config();
 
 
-
 app.use(cors({
   origin: "https://usermanagementfrontend.netlify.app/",
   credentials: true,
 }));
 
 // Middleware
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
