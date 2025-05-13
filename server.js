@@ -18,7 +18,7 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: "https://usermanagementfrontend.netlify.app/",
+  origin: "https://usermanagementfrontend.netlify.app",
   credentials: true,
 }));
 
